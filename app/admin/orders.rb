@@ -12,4 +12,5 @@ ActiveAdmin.register Order do
 #   permitted
 # end
 
+  permit_params :customer_id, :status, :total
 end

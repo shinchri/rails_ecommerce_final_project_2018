@@ -12,4 +12,6 @@ ActiveAdmin.register Level do
 #   permitted
 # end
 
+permit_params :description
+
 end
