@@ -14,4 +14,16 @@ ActiveAdmin.register OrderItem do
 
   permit_params :price, :quantity, :product_id, :order_id
 
+  form do |f|
+    f.semantic_errors *f.object.errors.keys
+
+    f.inputs "Details" do
+      f.input :product_id, :as => :select, :collection => Product.all.collect {|product| [product.name, product.id] }
+      f.input :order_id, :as => :select, :collection => Order.all.collect {|order| [order.id, order.id] }
+      f.input :price
+      f.input :quantity
+    end
+    f.actions
+  end
+
 end

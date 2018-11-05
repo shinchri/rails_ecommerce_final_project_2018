@@ -13,4 +13,18 @@ ActiveAdmin.register Product do
 # end
   permit_params :name, :description, :level_id, :type_id, :price, :image
 
+  form do |f|
+    f.semantic_errors *f.object.errors.keys
+
+    f.inputs "Details" do
+      f.input :level_id, :as => :select, :collection => Level.all.collect {|level| [level.description, level.id] }
+      f.input :type_id, :as => :select, :collection => Type.all.collect {|type| [type.description, type.id] }
+      f.input :name
+      f.input :description
+      f.input :price
+      f.input :image
+    end
+    f.actions
+  end
+
 end

@@ -13,4 +13,15 @@ ActiveAdmin.register Order do
 # end
 
   permit_params :customer_id, :status, :total
+
+  form do |f|
+    f.semantic_errors *f.object.errors.keys
+
+    f.inputs "Details" do
+      f.input :customer_id, :as => :select, :collection => Customer.all.collect {|customer| [customer.email, customer.id] }
+      f.input :status
+      f.input :total
+    end
+    f.actions
+  end
 end
