@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :levels, only: [:index, :show]
   resources :customers, only: [:index, :show]
 
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
