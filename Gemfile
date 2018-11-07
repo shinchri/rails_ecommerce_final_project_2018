@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'activeadmin'
 gem 'devise'
-#gem 'carrierwave' #image upload
+gem 'carrierwave' #image upload
 
 gem 'bootstrap', '~> 4.1.3' # adding bootstrap 4
 gem 'jquery-rails'
