@@ -7,24 +7,44 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home </a>
+        <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <!--<a class="nav-link" href="#">Link</a>-->
+        <%= link_to "Contact Us", {controller: "pages", action: "contact"}, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "About", {controller: "pages", action: "about"}, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
         <%= link_to "Products",products_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Levels
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to "All", levels_path, class: "dropdown-item" %>
+          <a class="dropdown-item" href="#">Level 1</a>
+          <a class="dropdown-item" href="#">Level 2</a>
+          <a class="dropdown-item" href="#">Level 3</a>
+          <a class="dropdown-item" href="#">Level 4</a>
+          <a class="dropdown-item" href="#">Level 5</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Types
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "All", types_path, class: "dropdown-item" %>
+          <a class="dropdown-item" href="#">Wire & Metal Puzzles</a>
+          <a class="dropdown-item" href="#">Wood Puzzles</a>
+          <a class="dropdown-item" href="#">Jigsaws</a>
+          <a class="dropdown-item" href="#">Puzzle Boxes</a>
+          <a class="dropdown-item" href="#">Rubik's Cube</a>
+        </div>
+      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
