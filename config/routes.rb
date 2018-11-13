@@ -7,6 +7,16 @@ Rails.application.routes.draw do
   resources :levels, only: [:index, :show]
   resources :customers, only: [:index, :show]
 
+  resources :search, only: [:index] do
+    collection do
+      get 'results'
+    end
+  end
+
+  # another options
+  #get 'search', to: 'search#index'
+  #get 'search/results', to 'search#results'
+
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
 

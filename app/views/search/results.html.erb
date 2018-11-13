@@ -1,0 +1,11 @@
+<h2>Products Found: <%= @products.size %></h2>
+
+<% if @products.empty? %>
+  <p>Sorry, no products found.</p>
+<% else %>
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product %></li>
+    <% end %>
+  </ul>
+<% end %>
