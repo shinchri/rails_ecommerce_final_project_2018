@@ -5,3 +5,5 @@
   <li><%= link_to product.name, product %></li>
 <% end %>
 </ul>
+
+<%= paginate @products, window:1, outer_window: 1 %>

@@ -8,4 +8,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
 
   mount_uploader :image, ImageUploader
+
+  paginates_per 10
 end
