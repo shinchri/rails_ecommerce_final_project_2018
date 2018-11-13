@@ -3,6 +3,10 @@ class SearchController < ApplicationController
   end
 
   def results
-    @products = Product.where("name like ?", "%#{params[:q]}%").where(type_id: params[:type])
+    if params[:type].empty?
+      @products = Product.where("name like ?", "%#{params[:q]}%")
+    else
+      @products = Product.where("name like ?", "%#{params[:q]}%").where(type_id: params[:type])
+    end
   end
 end
