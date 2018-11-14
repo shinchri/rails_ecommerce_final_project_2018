@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LevelsController < ApplicationController
   def index
     @levels = Level.all

@@ -1,11 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  resources :types, only: [:index, :show]
-  resources :products, only: [:index, :show]
-  resources :orders, only: [:index, :show]
-  resources :order_items, only: [:index, :show]
-  resources :levels, only: [:index, :show]
-  resources :customers, only: [:index, :show]
+Rails.application.routes.draw do
+  resources :types, only: %i[index show]
+  resources :products, only: %i[index show]
+  resources :orders, only: %i[index show]
+  resources :order_items, only: %i[index show]
+  resources :levels, only: %i[index show]
+  resources :customers, only: %i[index show]
 
   resources :search, only: [:index] do
     collection do
@@ -14,8 +15,8 @@ Rails.application.routes.draw do
   end
 
   # another options
-  #get 'search', to: 'search#index'
-  #get 'search/results', to 'search#results'
+  # get 'search', to: 'search#index'
+  # get 'search/results', to 'search#results'
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
