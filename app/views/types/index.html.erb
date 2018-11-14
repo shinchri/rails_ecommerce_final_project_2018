@@ -1,2 +1,7 @@
-<h1>Types#index</h1>
-<p>Find me in app/views/types/index.html.erb</p>
+<h1>List of Types</h1>
+
+<ul>
+<% @types.each do |type| %>
+  <li><%= link_to type.description, type %></li>
+<% end %>
+</ul>

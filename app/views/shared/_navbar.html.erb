@@ -48,7 +48,7 @@
 
     <%= form_tag(results_search_index_path, method: "get") do %>
       <%= label_tag(:q, "Search for:") %>
-      <%= select_tag 'type', options_for_select(Type.all.map{|el| [el.description, el.id] }), include_blank: true %>
+      <%= select_tag 'type', options_for_select(Type.all.map{|el| [el.description, el.id]}), include_blank: true %>
       <%= text_field_tag(:q) %>
       <%= submit_tag("Search") %>
     <% end %>
