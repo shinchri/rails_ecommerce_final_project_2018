@@ -14,5 +14,18 @@ ActiveAdmin.register Customer do
   #   permitted
   # end
 
-  permit_params :first_name, :last_name, :email, :address
+  permit_params :first_name, :last_name, :email, :address, :tax_rate_id
+
+  form do |f|
+    f.semantic_errors *f.object.errors.keys
+
+    f.inputs 'Details' do
+      f.input :first_name
+      f.input :last_name
+      f.input :email
+      f.input :address
+      f.input :tax_rate_id, as: :select, collection: TaxRate.all.collect { |rate| [rate.province_name, rate.id] }
+    end
+    f.actions
+  end
 end
