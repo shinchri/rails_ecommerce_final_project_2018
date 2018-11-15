@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  province_name: 
+  pst: 9.99
+  gst: 9.99
+
+two:
+  province_name: 
+  pst: 9.99
+  gst: 9.99
