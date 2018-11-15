@@ -14,7 +14,7 @@ ActiveAdmin.register Order do
   #   permitted
   # end
 
-  permit_params :customer_id, :status, :total
+  permit_params :customer_id, :status, :total, :total_tax
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
@@ -23,6 +23,7 @@ ActiveAdmin.register Order do
       f.input :customer_id, as: :select, collection: Customer.all.collect { |customer| [customer.email, customer.id] }
       f.input :status
       f.input :total
+      f.input :total_tax
     end
     f.actions
   end

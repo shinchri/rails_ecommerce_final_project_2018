@@ -13,7 +13,7 @@ ActiveAdmin.register Product do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :name, :description, :level_id, :type_id, :price, :image
+  permit_params :name, :description, :level_id, :type_id, :price, :image, :on_sale, :is_new
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
@@ -25,6 +25,8 @@ ActiveAdmin.register Product do
       f.input :description
       f.input :price
       f.input :image
+      f.input :on_sale
+      f.input :is_new
     end
     f.actions
   end
