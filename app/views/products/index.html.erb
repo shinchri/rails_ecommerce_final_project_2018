@@ -1,5 +1,11 @@
 <h1>List of Products</h1>
 
+<div class="product_state">
+  <a href="#">All</a>
+  <a href="#">New</a>
+  <a href="#">Sale</a>
+</div>
+
 <ul>
 <% @products.each do |product| %>
   <li><%= link_to product.name, product %></li>
