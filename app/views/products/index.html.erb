@@ -1,9 +1,9 @@
 <h1>List of Products</h1>
 
 <div class="product_state">
-  <a href="#">All</a>
-  <a href="#">New</a>
-  <a href="#">Sale</a>
+  <%= link_to 'All', products_path %>
+  <%= link_to 'New', {controller: 'products', action: 'index', :is_new => true}%>
+  <%= link_to 'Sale', {controller: 'products', action: 'index', :on_sale => true}%>
 </div>
 
 <ul>

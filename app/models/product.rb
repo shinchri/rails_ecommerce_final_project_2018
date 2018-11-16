@@ -12,4 +12,8 @@ class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   paginates_per 10
+
+  # trying filtering
+  scope :is_new, -> (is_new) {where is_new: is_new}
+  scope :on_sale, -> (on_sale) {where on_sale: on_sale}
 end
