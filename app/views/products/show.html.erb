@@ -1,7 +1,19 @@
 <h1><%= @product.name %></h1>
 
+<div class='row'>
+  <div class="col-md-6">
+    <%= image_tag(@product.image_url, width: '80%') if @product.image.present? %>
+  </div>
 
-<% if @product.image.present? %>
-  <%= image_tag @product.image.url %><br/>
-<% end %>
-<pre><%=@product.description%></pre>
+  <div class="col-md-6">
+    <p><b>Type: </b><%= @product.type.description %></p>
+    <p><b>Level: </b><%= @product.level.description %></p>
+    <p><b>Price: </b>$<%= @product.price %></p>
+    <p><b>Description: </b><%= @product.description %></p>
+    <p>
+      <%= link_to 'Back', products_path %>
+    </p>
+  </div>
+
+
+</div>
