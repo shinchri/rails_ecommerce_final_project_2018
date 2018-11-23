@@ -23,12 +23,9 @@
           Levels
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "All", levels_path, class: "dropdown-item" %>
-          <a class="dropdown-item" href="#">Level 1</a>
-          <a class="dropdown-item" href="#">Level 2</a>
-          <a class="dropdown-item" href="#">Level 3</a>
-          <a class="dropdown-item" href="#">Level 4</a>
-          <a class="dropdown-item" href="#">Level 5</a>
+          <% @levels_for_nav.each do |each_lvl|  %>
+            <%= link_to each_lvl.description, each_lvl, class: "dropdown-item" %>
+          <% end %>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -36,12 +33,9 @@
           Types
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "All", types_path, class: "dropdown-item" %>
-          <a class="dropdown-item" href="#">Wire & Metal Puzzles</a>
-          <a class="dropdown-item" href="#">Wood Puzzles</a>
-          <a class="dropdown-item" href="#">Jigsaws</a>
-          <a class="dropdown-item" href="#">Puzzle Boxes</a>
-          <a class="dropdown-item" href="#">Rubik's Cube</a>
+          <% @types_for_nav.each do |each_type|  %>
+            <%= link_to each_type.description, each_type, class: "dropdown-item" %>
+          <% end %>
         </div>
       </li>
     </ul>

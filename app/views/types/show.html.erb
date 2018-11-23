@@ -1,8 +1,15 @@
 <h1><%= @type.description %></h1>
-<h2>List of Products</h2>
 
-<ul>
-  <% @type.products.each do |product| %>
-    <li><%= link_to product.name, product %></li>
-  <% end %>
-</ul>
+<% @type.products.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |product| %>
+      <div class="col-md-4">
+        <%= image_tag product.image_url, width: '50%' if product.image.present? %>
+        <h4><%= link_to product.name, product %></h4>
+        <strong>Type:</strong> <%= product.type.description %><br/>
+        <strong>Level:</strong> <%= product.level.description %><br/>
+        <strong>Price:</strong> $ <%= product.price %><br/>
+      </div>
+    <% end %>
+  </div>
+<% end %>
