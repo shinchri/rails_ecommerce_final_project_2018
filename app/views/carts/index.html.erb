@@ -1,7 +1,7 @@
 <h1>List of Items in the cart</h1>
 
-<% if @cart_items.nil? %>
-  <p>The cart is empty.</p>
+<% if @cart_items.empty? %>
+  <h2>The cart is empty.</h2>
 <% else %>
   <% @cart_items.in_groups_of(3) do |group| %>
     <div class="row">
@@ -16,4 +16,7 @@
       <% end %>
     </div>
   <% end %>
+  <div class="clear_cart_btn">
+    <%= link_to 'Clear Shopping Cart', clear_shopping_cart_lists_carts_path, method: :post, class: "btn btn-primary", role: "button" %>
+  </div>
 <% end %>
