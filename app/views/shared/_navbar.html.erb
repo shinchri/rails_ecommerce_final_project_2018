@@ -38,6 +38,9 @@
           <% end %>
         </div>
       </li>
+      <li class="nav-item">
+        <%= link_to "Shopping Cart", {controller: "carts", action: "index"}, class: "nav-link" %>
+      </li>
     </ul>
 
     <%= form_tag(results_search_index_path, method: "get") do %>
