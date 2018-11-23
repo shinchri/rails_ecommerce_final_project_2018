@@ -11,4 +11,16 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
+
+  # Add a product by id to my cart array in session
+  # POST /product/:id/add_to_shopping_cart
+  def add_to_shopping_cart
+    id = params[:id].to_i
+    unless session[:product_id].include?(id)
+      session[:product_id] << id
+      #session[:quantity] << Product.find(params[:id]).price
+    end
+
+    redirect_to action: 'show', id: params[:id]
+  end
 end

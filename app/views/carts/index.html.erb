@@ -1,0 +1,19 @@
+<h1>List of Items in the cart</h1>
+
+<% if @cart_items.nil? %>
+  <p>The cart is empty.</p>
+<% else %>
+  <% @cart_items.in_groups_of(3) do |group| %>
+    <div class="row">
+      <% group.compact.each do |product| %>
+        <div class="col-md-4">
+          <%= image_tag product.image_url, width: '50%' if product.image.present? %>
+          <h4><%= link_to product.name, product %></h4>
+          <strong>Type:</strong> <%= product.type.description %><br/>
+          <strong>Level:</strong> <%= product.level.description %><br/>
+          <strong>Price of each item:</strong> $<%= product.price %><br/>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

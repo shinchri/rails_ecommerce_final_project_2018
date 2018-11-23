@@ -12,6 +12,7 @@
     <p><b>Description: </b><%= @product.description %></p>
     <p>
       <%= link_to 'Back', products_path, class: "btn btn-primary", role: "button" %>
+      <%= link_to 'Add to Shopping Cart', add_to_shopping_cart_product_path(@product), method: :post, class: "btn btn-primary", role: "button" %>
     </p>
   </div>
 </div>

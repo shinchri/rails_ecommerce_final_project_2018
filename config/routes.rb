@@ -1,8 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :carts, only: %i[index] do
+    collection do
+      post :clear_shopping_cart_lists
+    end
+  end
+
   resources :types, only: %i[index show]
-  resources :products, only: %i[index show]
+  resources :products, only: %i[index show] do
+    member do
+      post :add_to_shopping_cart
+    end
+  end
+
   resources :orders, only: %i[index show]
   resources :order_items, only: %i[index show]
   resources :levels, only: %i[index show]
