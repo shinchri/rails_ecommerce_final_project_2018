@@ -12,6 +12,6 @@ ActiveAdmin.register TaxRate do
 #   permitted
 # end
 
-  permit_params :province_name, :pst, :gst
+  permit_params :province_name, :pst, :gst, :hst
 
 end

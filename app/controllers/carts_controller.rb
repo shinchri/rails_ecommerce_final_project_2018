@@ -31,7 +31,7 @@ class CartsController < ApplicationController
     end
 
     @total_price = @cart_items.sum(&:price)
-    @total_tax = (@new_customer.tax_rate.gst + @new_customer.tax_rate.pst) * @total_price
+    @total_tax = (@new_customer.tax_rate.gst + @new_customer.tax_rate.pst + @new_customer.tax_rate.hst) * @total_price
     @final_total = @total_price + @total_tax
 
     #creating new order
