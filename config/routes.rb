@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   resources :carts, only: %i[index] do
     collection do
+      post :checkout
       post :clear_shopping_cart_lists
     end
   end
@@ -14,10 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: %i[index show]
-  resources :order_items, only: %i[index show]
+  resources :orders
+  resources :order_items
   resources :levels, only: %i[index show]
-  resources :customers, only: %i[index show]
+  resources :customers
 
   resources :search, only: [:index] do
     collection do

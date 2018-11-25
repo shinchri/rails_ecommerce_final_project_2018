@@ -19,4 +19,36 @@
   <div class="clear_cart_btn">
     <%= link_to 'Clear Shopping Cart', clear_shopping_cart_lists_carts_path, method: :post, class: "btn btn-primary", role: "button" %>
   </div>
+
+  <!-- form goes here -->
+
+<%= form_for @new_customer, url: {controller: 'carts', action: "checkout", method: :post}, html: {class: "nifty_form"} do |f| %>
+  <%= f.label :first_name, 'First Name:' %><br/>
+  <%= f.text_field :first_name %><br /><br/>
+  <%= f.label :last_name, 'Last Name:' %><br/>
+  <%= f.text_field :last_name %><br /><br/>
+  <%= f.label :email, 'Your Email:' %><br/>
+  <%= f.email_field :email %><br /><br/>
+  <%= f.label :address, 'Your Home address:' %><br/>
+  <%= f.text_area :address, size: "60x3" %><br/><br/>
+  <%= f.label :tax_rate_id, 'Province' %><br/>
+  <%= f.collection_select(:tax_rate_id, TaxRate.all, :id, :province_name) %><br/><br/>
+  <%= f.submit "Create" %>
+<% end %>
+
+<!-- for error checking -->
+  <% if @message.nil? %>
+    <p>no error message at all.</p>
+  <% else %>
+    <p><%= @message %><p>
+  <% end %>
+
+  <% if @params.nil? %>
+    <p>no params at all.</p>
+  <% else %>
+    <p><%= @params[:email] %><p>
+  <% end %>
+
+
+
 <% end %>

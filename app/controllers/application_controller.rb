@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   def load_levels
     @levels_for_nav = Level.all
     @types_for_nav = Type.all
+    @new_customer = Customer.new
   end
 
   def initialize_session
