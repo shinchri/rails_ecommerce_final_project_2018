@@ -1,9 +1,21 @@
-<h1>Checkout Process</h1>
+<h1>Invoice: Checkout Process</h1>
 
-<%= @new_customer.email %><br/>
 
-<%= @total_price %><br/>
+<div class="checkout_invoice">
+  <b>Customer:</b> <%= @new_customer.first_name %> <%= @new_customer.last_name %> <br/>
+  <b>Address:</b> <%= @new_customer.address %> <%= @new_customer.tax_rate.province_name %><br/><br/>
 
-<%= @total_tax %><br/>
+  <b>Status of Order:</b> <%= @new_order.order_status.status %><br/><br/>
 
-<%= @message_order %> with <%= @new_order.total %> and <%= @new_order.customer.email %><br/>
+  <b>List of products:</b>
+  <ul>
+    <% @new_order.order_items.each do  |item| %>
+      <li><%= item.product.name %> - <%= item.price %></li>
+    <% end %>
+  </ul>
+
+  <b>Sub-total:</b> <%= @new_order.total.round(2) %><br/>
+  <b>Total Tax:</b> <%= @new_order.total_tax.round(2) %><br/><br/>
+
+  <b>Total:</b> <%= @final_total.round(2) %>
+</div>
