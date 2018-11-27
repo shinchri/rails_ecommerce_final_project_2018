@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :charges, only: %i[new create]
   resources :carts, only: %i[index] do
     collection do
       post :checkout
