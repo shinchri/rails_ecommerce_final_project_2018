@@ -18,4 +18,5 @@
   <b>Total Tax:</b> <%= @new_order.total_tax.round(2) %><br/><br/>
 
   <b>Total:</b> <%= @final_total.round(2) %>
+  <%= link_to 'Proceed to Payment', {controller: 'charges', action: 'new'} %>
 </div>

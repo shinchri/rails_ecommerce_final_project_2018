@@ -1,2 +1,14 @@
-<h1>Charges#create</h1>
-<p>Find me in app/views/charges/create.html.erb</p>
+<h2>Thanks, you paid <strong><%= number_to_currency(@charge.amount.to_f / 100) %></strong>!</h2>
+
+
+<h3>Order Object</h3>
+<%= debug @new_order %>
+
+<h3>Customer ID</h3>
+<%= @customer.id %>
+
+<h3>Charge ID</h3>
+<%= @charge.id %>
+
+<h3>New order ID</h3>
+<%= @new_order.class %> <!--Hash-->

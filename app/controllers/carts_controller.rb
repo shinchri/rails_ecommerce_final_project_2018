@@ -31,6 +31,7 @@ class CartsController < ApplicationController
     @total_price = @cart_items.sum(&:price)
     @total_tax = (@new_customer.tax_rate.gst + @new_customer.tax_rate.pst + @new_customer.tax_rate.hst) * @total_price
     @final_total = @total_price + @total_tax
+    session[:final_total] = @final_total
 
     #creating new order
     @new_order = Order.new(
@@ -46,6 +47,10 @@ class CartsController < ApplicationController
     else
       @message_order = 'failed to save!'
     end
+
+    session[:new_order_object] = @new_order
+    session[:new_order_id] ||=0
+    session[:new_order_id] = @new_order.id.to_i
 
     #loop through the cart_items
 
