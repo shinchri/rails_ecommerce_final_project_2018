@@ -21,8 +21,6 @@ class CartsController < ApplicationController
       tax_rate_id: params[:customer][:tax_rate_id]
     )
 
-    @params = params
-
     if(@new_customer.save)
       # saved!!!
       @message = 'saved!'
@@ -49,20 +47,6 @@ class CartsController < ApplicationController
       @message_order = 'failed to save!'
     end
 
-    # order_items
-    # t.decimal "price"
-    # t.integer "quantity"
-    # t.integer "product_id"
-    # t.integer "order_id"
-
-    #product
-    # t.string "name"
-    # t.text "description"
-    # t.integer "level_id"
-    # t.integer "type_id"
-    # t.decimal "price"
-    # t.string "image"
-
     #loop through the cart_items
 
     @cart_items.each do |item|
@@ -79,8 +63,9 @@ class CartsController < ApplicationController
       else
         @message_order_item = 'failed to save!'
       end
-
     end
+
+
 
     #redirect_to action: 'index'
   end

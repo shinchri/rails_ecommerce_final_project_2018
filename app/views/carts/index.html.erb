@@ -33,22 +33,8 @@
   <%= f.text_area :address, size: "60x3" %><br/><br/>
   <%= f.label :tax_rate_id, 'Province' %><br/>
   <%= f.collection_select(:tax_rate_id, TaxRate.all, :id, :province_name) %><br/><br/>
-  <%= f.submit "Create" %>
+  <%= f.submit "Proceed to Checkout" %>
 <% end %>
-
-<!-- for error checking -->
-  <% if @message.nil? %>
-    <p>no error message at all.</p>
-  <% else %>
-    <p><%= @message %><p>
-  <% end %>
-
-  <% if @params.nil? %>
-    <p>no params at all.</p>
-  <% else %>
-    <p><%= @params[:email] %><p>
-  <% end %>
-
 
 
 <% end %>
